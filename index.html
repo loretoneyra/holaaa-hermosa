@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¿Quieres pololear conmigo?</title>
+  <style>
+    :root {
+      --bg:#0f172a; --card:#111827; --muted:#94a3b8;
+      --accent:#22c55e; --danger:#ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+      background:var(--bg);
+      color:#e5e7eb;
+      display:grid;
+      min-height:100dvh;
+      place-items:center;
+    }
+    .card {
+      width:min(720px,92vw);
+      background:var(--card);
+      border:1px solid #1f2937;
+      border-radius:20px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      text-align:center;
+    }
+    h1 { margin:0 0 12px; font-size:clamp(22px,5vw,34px); }
+    p  { margin:0 0 16px; color:var(--muted); line-height:1.6; }
+    .buttons {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    button {
+      appearance:none;
+      border:none;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .04s ease, filter .2s ease;
+    }
+    button:active { transform:translateY(1px); }
+    .yes { background:var(--accent); color:#053b1d; }
+    .no  { background:var(--danger); color:#fff; }
+    .result { margin-top:20px; display:none; }
+    .bye {
+      font-size:clamp(36px,8vw,70px);
+      font-weight:900;
+      letter-spacing:2px;
+      color:#fca5a5;
+      margin-bottom:16px;
+      animation: shake 0.4s ease-in-out 2;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      50% { transform: translateX(10px); }
+      75% { transform: translateX(-5px); }
+    }
+    iframe {
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      border-radius:16px;
+    }
+    img {
+      max-width:80%;
+      border-radius:16px;
+      margin-top:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+      animation: bounce 1s ease-in-out infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-10px); }
+    }
+    .hint { margin-top:14px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Mi amor, Urimary de los Ángeles Pereira Moreno…</h1>
+
+    <p>No sé por dónde empezar. Es la primera vez que hago algo así y, mientras lees esto, mis nervios están a mil.
+       Conocerte ha sido de las mejores cosas que me han pasado. Eres una mujer extraordinaria, increíble por dentro y por fuera,
+       tu sonrisa ilumina y tus ojos son los más hermosos del mundo. Podría seguir describiéndote y no terminar nunca.
+       Para mí, eres perfecta. Me gustas, y me gustas mucho, tal como eres.</p>
+
+    <p>El otro día me dijiste que me querías. Me quedé en shock porque no lo esperaba, pero en ese momento también me di cuenta de que yo
+       te quiero y mucho. Durante este tiempo que hemos estado saliendo me has hecho la mujer más feliz, y yo también quiero hacerte sentir
+       eso a ti: darte el cariño y el amor que te mereces, todo lo que mereces y más. Lo quiero todo… pero contigo.</p>
+
+    <p>Por eso, hoy quiero preguntarte algo muy importante:</p>
+
+    <h1>¿Puedo ser tu novia?</h1>
+
+    <div class="buttons">
+      <button class="yes" id="btn-yes">Sí</button>
+      <button class="no"  id="btn-no">No</button>
+    </div>
+
+    <section id="result" class="result" aria-live="polite"></section>
+
+    <p class="hint">Pd: ME ENCANTAS MUCHO AMOR y quiero algo serio contigo</p>
+  </main>
+
+  <script>
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo  = document.getElementById('btn-no');
+    const result = document.getElementById('result');
+
+    btnYes.addEventListener('click', () => {
+      result.innerHTML = `
+        <div class="player">
+          <iframe
+            src="https://www.youtube.com/embed/WPiEbYSF9kE?autoplay=1&rel=0"
+            title="SIUUUUUUUU ACEPTASTE AMOOOOR <3"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>`;
+      result.style.display = 'block';
+    });
+
+    btnNo.addEventListener('click', () => {
+      result.innerHTML = `
+        <div class="bye">NININININININI </div>
+        <img src="memepregunta.jpg" alt="meme divertido">
+      `;
+      result.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+
